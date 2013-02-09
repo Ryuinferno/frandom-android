@@ -1,0 +1,47 @@
+K E R N E L   M O D U L E   I N S T A L L A T I O N
+===================================================
+
+There is nothing special about these instructions. They are intended as a
+step-by-step guide for whoever isn't used to install kernel modules.
+
+It may *look* complicated, but the whole thing should take no more than 10
+minutes.
+
+By default, the module is compiled for the kernel currently running.
+
+The installations consists of the following steps:
+
+1. Compilation
+2. Move frandom.ko to /system/lib/modules/{something}
+3. Make frandom load at bootup
+4. Test
+
+In detail:
+=========
+1. Compile
+==========
+
+Simply type "make" at shell prompt. Type "make clean" to clean working directory.
+
+2. Installing to /system/lib/modules
+===========================================
+
+Just create /system/lib/modules if none exist and place the newly compile frandom.ko in there, set permissions to 644.
+
+3. Make frandom load at bootup
+==============================
+
+This can be done by adding the script named 00frandom into /etc/init.d, provided your kernel supports init.d.
+
+5. Test
+=======
+
+The test.sh script runs a simple speed test. It can be executed as regular
+user. To excecute, just place test.sh in /sdcard. In Terminal, 
+type "cd /sdcard", then "sh test.sh".
+
+Good luck & skill,
+
+  Eli Billauer, 1 Oct 2003 (updated Jul 2011)
+  Email: eli _at_ billauer.co.il
+  Androidified by: Ryuinferno
